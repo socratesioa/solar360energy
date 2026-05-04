@@ -1,0 +1,45 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.slide__img-wrapper {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.slide__img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.swiper .swiper-button-next::after,
+.swiper .swiper-button-prev::after {
+  content: "";
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  width: 48px;
+  height: 48px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.swiper-button-next {
+  background-image: url("/icons/icon-slider-right.svg");
+}
+
+.swiper-button-prev {
+  background-image: url("/icons/icon-slider-left.svg");
+}
+
+.slide__details {
+  margin-top: 2rem;
+  display: grid;
+  gap: 0.75rem;
+}

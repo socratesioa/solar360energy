@@ -1,0 +1,26 @@
+---
+import "../styles/main.scss";
+import "../styles/swiper.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Solar360 Energy</title>
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>

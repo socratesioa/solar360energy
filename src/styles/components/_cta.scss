@@ -1,0 +1,53 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.cta {
+  padding: 0 1rem;
+}
+
+.cta__inner {
+  background: $color-brand;
+  padding: 3rem 2rem;
+  border-radius: 8px;
+}
+
+.cta h2 {
+  color: $color-white;
+  display: grid;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.cta h2 span {
+  display: block;
+}
+
+.cta__subheading {
+  color: $color-white;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.cta__subheading span {
+  display: block;
+}
+
+form {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.inputs {
+  display: grid;
+  gap: 1rem;
+}
+
+.inputs input {
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  outline: none;
+  border: 1px solid rgba($color-black, 0.5);
+  font-family: inherit;
+  font-size: 1.25rem;
+}

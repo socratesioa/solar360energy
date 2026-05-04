@@ -1,0 +1,42 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.contact__call-section {
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.contact__form {
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.inputs__contact {
+  display: grid;
+  gap: 1rem;
+}
+
+.inputs__contact input {
+  border-radius: 16px;
+  padding: 1rem;
+  outline: none;
+  border: 1px solid rgba($color-black, 0.5);
+  font-family: inherit;
+  font-size: 1.25rem;
+}
+
+.contact__call {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact__call-phone,
+.contact__call-hours {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: $color-text;
+  font-size: 1.2rem;
+  font-weight: 700;
+}

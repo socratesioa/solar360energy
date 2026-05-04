@@ -1,0 +1,45 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.btn__primary {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: $color-brand;
+  border-radius: 16px;
+  color: $color-white;
+  text-decoration: none;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 5%;
+}
+
+.btn__arrow {
+  display: block;
+  height: 1.25rem;
+  width: auto;
+}
+
+.submit__btn {
+  border: none;
+  background: none;
+  outline: none;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: $color-black;
+  border-radius: 16px;
+  color: $color-white;
+  text-decoration: none;
+  font-size: 1.125rem;
+  font-family: inherit;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 5%;
+  cursor: pointer;
+}

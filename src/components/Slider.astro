@@ -1,0 +1,60 @@
+---
+const slides = [
+  {
+    image: "/images/installations.jpg",
+    location: "Potami, Nicosia",
+    description: "Project description a few words for each.",
+  },
+  {
+    image: "/images/installations.jpg",
+    location: "Apesia, Limassol",
+    description: "Project description a few words for each.",
+  },
+  {
+    image: "/images/installations.jpg",
+    location: "Strovolos, Nicosia",
+    description: "Project description a few words for each.",
+  },
+];
+---
+
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    {
+      slides.map((slide) => (
+        <div class="swiper-slide">
+          <div class="slide__img-wrapper">
+            <img src={slide.image} alt={slide.location} />
+          </div>
+          <div class="slide__details">
+            <h3>{slide.location}</h3>
+            <p>{slide.description}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+
+<script>
+  import Swiper from "swiper";
+  import { Navigation } from "swiper/modules";
+
+  const swiper = new Swiper(".mySwiper", {
+    modules: [Navigation],
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+      addIcons: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    grabCursor: true,
+  });
+</script>

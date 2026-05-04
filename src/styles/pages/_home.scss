@@ -1,0 +1,132 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.hero__inner {
+  padding: 2rem 1rem 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.hero__img {
+  width: 100%;
+  height: auto;
+}
+
+.feature-img {
+  width: 100%;
+  height: auto;
+}
+
+.hero__text {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.hero__content {
+  display: grid;
+  text-align: center;
+  gap: 2rem;
+}
+
+.hero__subheading {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: $font-heading;
+  color: $color-brand;
+}
+
+.hero__heading-highlight {
+  color: $color-brand;
+  font-weight: 800;
+}
+
+.hero__heading-break {
+  display: block;
+}
+
+.section__home {
+  padding: 4rem 1rem;
+  position: relative;
+}
+
+.section__home::before {
+  content: "";
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 1px;
+  background: $color-divider;
+}
+
+.section__heading {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 3rem;
+}
+
+.section__heading::before {
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: $color-divider;
+  bottom: 0;
+  left: 0;
+}
+
+.section__heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 50%;
+  background: $color-brand;
+}
+
+.why__list {
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+.why__list li {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.who {
+  position: relative;
+}
+
+.who::after {
+  content: "";
+  width: 176px;
+  height: 317px;
+  right: 0;
+  top: 0;
+  background: url("/images/bg-section-pattern.svg");
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.why {
+  position: relative;
+}
+
+.why::after {
+  content: "";
+  width: 176px;
+  height: 317px;
+  right: 0;
+  top: 0;
+  background: url("/images/bg-section-pattern.svg");
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}

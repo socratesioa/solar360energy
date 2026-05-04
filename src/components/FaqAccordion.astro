@@ -1,0 +1,95 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FAQItem[];
+}
+
+const { items } = Astro.props as Props;
+---
+
+<section class="faq">
+  <div class="faq__items">
+    {
+      items.map((item, index) => (
+        <article class="faq__item">
+          <button
+            class="faq__question"
+            aria-expanded="false"
+            aria-controls={`faq-answer-${index}`}
+          >
+            <span>{item.question}</span>
+
+            <span class="faq__icon">
+              <svg class="icon-plus" width="16" height="16" viewBox="0 0 16 16">
+                <path d="M7 1h2v14H7zM1 7h14v2H1z" fill="currentColor" />
+              </svg>
+
+              <svg
+                class="icon-minus"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+              >
+                <path d="M1 7h14v2H1z" fill="currentColor" />
+              </svg>
+            </span>
+          </button>
+
+          <div id={`faq-answer-${index}`} class="faq__answer">
+            <p>{item.answer}</p>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<script is:inline>
+  const accordions = document.querySelectorAll(".faq");
+
+  accordions.forEach((accordion) => {
+    const buttons = accordion.querySelectorAll(".faq__question");
+
+    buttons.forEach((button) => {
+      const panel = button.nextElementSibling;
+
+      if (!(panel instanceof HTMLElement)) return;
+
+      // base state
+      panel.style.overflow = "hidden";
+      panel.style.maxHeight = "0px";
+
+      button.setAttribute("aria-expanded", "false");
+
+      button.addEventListener("click", () => {
+        const isOpen = button.getAttribute("aria-expanded") === "true";
+
+        // close all
+        buttons.forEach((btn) => {
+          btn.setAttribute("aria-expanded", "false");
+
+          const p = btn.nextElementSibling;
+
+          if (p instanceof HTMLElement) {
+            p.style.maxHeight = "0px";
+          }
+        });
+
+        // open clicked
+        if (!isOpen) {
+          button.setAttribute("aria-expanded", "true");
+
+          const p = button.nextElementSibling;
+
+          if (p instanceof HTMLElement) {
+            p.style.maxHeight = p.scrollHeight + "px";
+          }
+        }
+      });
+    });
+  });
+</script>

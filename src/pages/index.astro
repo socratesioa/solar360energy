@@ -1,0 +1,98 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Tabs from "../components/Tabs.astro";
+import Slider from "../components/Slider.astro";
+import Cta from "../components/Cta.astro";
+import { Image } from "astro:assets";
+import heroImage from "../assets/images/hero-mobile.png";
+---
+
+<BaseLayout>
+  <main class="home">
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero__inner">
+        <Image src={heroImage} class="hero__img" alt="Hero" />
+        <div class="hero__content">
+          <div class="hero__text">
+            <span class="hero__subheading">Clean Energy. Smarter Future.</span>
+            <h1 id="hero-heading" class="hero__heading">
+              Solar<span class="hero__heading-highlight">360</span>
+              <span class="hero__heading-break">Energy</span>
+            </h1>
+          </div>
+          <a href="#who" class="btn__primary"
+            >Learn More <span
+              ><img src="/icons/arrow-right.svg" class="btn__arrow" /></span
+            ></a
+          >
+        </div>
+      </div>
+    </section>
+    <section id="who" class="who section__home" aria-labelledby="who-heading">
+      <h2 id="who-heading" class="section__heading">Who We Are</h2>
+      <div class="section__text">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+          efficitur orci ac molestie venenatis. Phasellus libero nibh, imperdiet
+          non sollicitudin euismod, luctus et quam.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+          efficitur orci ac molestie venenatis. Phasellus libero nibh, imperdiet
+          non sollicitudin euismod, luctus et quam.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+          efficitur orci ac molestie venenatis. Phasellus libero nibh, imperdiet
+          non sollicitudin euismod, luctus et quam.
+        </p>
+      </div>
+    </section>
+
+    <section class="what section__home" aria-labelledby="what-heading">
+      <h2 id="what-heading" class="section__heading">What We Do</h2>
+      <div class="section__text">
+        <Tabs />
+      </div>
+    </section>
+    <section class="why section__home" aria-labelledby="why-heading">
+      <h2 id="why-heading" class="section__heading">Why Choose Us</h2>
+      <div class="section__text">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+          efficitur orci ac molestie venenatis. Phasellus libero nibh, imperdiet
+          non sollicitudin euismod, luctus et quam.
+        </p>
+        <ul class="why__list">
+          <li>
+            <img src="/icons/icon-check.svg" /><span>Something here</span>
+          </li>
+          <li>
+            <img src="/icons/icon-check.svg" /><span>Something here</span>
+          </li>
+          <li>
+            <img src="/icons/icon-check.svg" /><span>Something here</span>
+          </li>
+          <li>
+            <img src="/icons/icon-check.svg" /><span>Something here</span>
+          </li>
+          <li>
+            <img src="/icons/icon-check.svg" /><span>Something here</span>
+          </li>
+        </ul>
+      </div>
+      <a href="#who" class="btn__primary"
+        >Request Quote <span
+          ><img src="/icons/arrow-right.svg" class="btn__arrow" /></span
+        ></a
+      >
+    </section>
+    <section class="our__work section__home" aria-labelledby="work-heading">
+      <h2 id="work-heading" class="section__heading">Our Work</h2>
+      <div class="section__text">
+        <Slider />
+      </div>
+    </section>
+    <Cta />
+  </main>
+</BaseLayout>

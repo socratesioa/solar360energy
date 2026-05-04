@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="container">
+    <section class="page__hero" aria-labelledby="page-heading">
+      <h1 id="page-heading" class="page__heading">Contact</h1>
+      <p>
+        Our team is ready to assist with all your solar service needs. Get in
+        touch using the contact form, call us directly, or connect with us
+        through WhatsApp and social media for a fast response.
+      </p>
+    </section>
+    <section class="contact__form">
+      <h2 class="page__subheading">Fill Out the Form</h2>
+      <form>
+        <div class="inputs__contact">
+          <input type="text" placeholder="Name" />
+          <input type="email" placeholder="Email" />
+          <input type="text" placeholder="Phone" />
+        </div>
+        <button type="submit" class="submit__btn"
+          >Submit<span
+            ><img src="/icons/arrow-right.svg" class="btn__arrow" /></span
+          >
+        </button>
+      </form>
+    </section>
+    <section class="contact__call-section">
+      <h2 class="page__subheading">Give Us a Call</h2>
+      <p>
+        Feel free to reach out by phone for any questions or if you would like
+        to receive a free quote.
+      </p>
+      <div class="contact__call">
+        <div class="contact__call-phone">
+          <img src="/icons/icon-phone-dark.svg" width="32" height="32" />
+          <span>+357 70 070705</span>
+        </div>
+        <div class="contact__call-hours">
+          <img src="/icons/icon-clock-dark.svg" width="32" height="32" />
+          <span>7am - 6pm</span>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

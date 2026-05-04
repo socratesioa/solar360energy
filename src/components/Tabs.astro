@@ -1,0 +1,113 @@
+---
+const features = [
+  {
+    id: "tab1",
+    title: "Installations",
+    text: "We provide high-quality solar installations.",
+    images: {
+      desktop: ["/images/installations.jpg", "/images/installations.jpg"],
+      tablet: ["/images/installations.jpg", "/images/installations.jpg"],
+      mobile: ["/images/installations.jpg", "/images/installations.jpg"],
+    },
+    alt: "A fresh solar panel system installation",
+  },
+  {
+    id: "tab2",
+    title: "Panel Cleaning",
+    text: "Keep your system running efficiently.",
+    images: {
+      desktop: ["/images/cleaning.jpg", "/images/cleaning.jpg"],
+      tablet: ["/images/cleaning.jpg", "/images/cleaning.jpg"],
+      mobile: ["/images/cleaning.jpg", "/images/cleaning.jpg"],
+    },
+    alt: "Cleaned solar panels",
+  },
+  {
+    id: "tab3",
+    title: "Bird Proofing",
+    text: "Keep your system running efficiently.",
+    images: {
+      desktop: ["/images/bird-proofing.jpg", "/images/bird-proofing.jpg"],
+      tablet: ["/images/bird-proofing.jpg", "/images/bird-proofing.jpg"],
+      mobile: ["/images/bird-proofing.jpg", "/images/bird-proofing.jpg"],
+    },
+    alt: "Cleaned solar panels",
+  },
+];
+---
+
+<div class="tabs" role="tablist">
+  {
+    features.map((feature, index) => (
+      <button
+        class="feature-btn"
+        role="tab"
+        aria-selected={index === 0 ? "true" : "false"}
+        data-tab={feature.id}
+      >
+        {feature.title}
+      </button>
+    ))
+  }
+</div>
+
+<div class="feature-panels">
+  {features.map((feature, index) => (
+    <div
+      class="feature-panel"
+      data-panel={feature.id}
+      hidden={index !== 0}
+    >
+      <picture class="feature-img-wrapper">
+        
+        <!-- Desktop -->
+        <source
+          srcset={`${feature.images.desktop[0]} 1x, ${feature.images.desktop[1]} 2x`}
+          media="(min-width: 1200px)"
+        />
+
+        <!-- Tablet -->
+        <source
+          srcset={`${feature.images.tablet[0]} 1x, ${feature.images.tablet[1]} 2x`}
+          media="(min-width: 600px)"
+        />
+
+        <!-- Fallback (mobile) -->
+        <img
+          src={feature.images.mobile[0]}
+          srcset={`${feature.images.mobile[0]} 1x, ${feature.images.mobile[1]} 2x`}
+          alt={feature.alt}
+          width="358"
+          height="358"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+
+      <div class="feature-content">
+        <p>{feature.text}</p>
+      </div>
+    </div>
+  ))}
+</div>
+
+<script is:inline>
+  const tabs = document.querySelectorAll(".feature-btn");
+  const panels = document.querySelectorAll(".feature-panel");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const id = tab.dataset.tab;
+
+      // Update active tab
+      tabs.forEach((t) =>
+        t.setAttribute("aria-selected", t === tab ? "true" : "false")
+      );
+
+      // Show correct panel
+      panels.forEach((panel) => {
+        panel.hidden = panel.dataset.panel !== id;
+      });
+    });
+  });
+</script>

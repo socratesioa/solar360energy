@@ -1,0 +1,299 @@
+---
+
+---
+
+<header class="header">
+  <div class="header__inner">
+    <a href="/">
+      <img
+        src="/icons/logo.svg"
+        width="105"
+        height="35"
+        alt="Solar360 Energy Logo"
+      />
+    </a>
+
+    <!-- DESKTOP NAV -->
+    <div class="main__navigation-container">
+      <nav class="header__nav-desktop">
+        <ul class="header__nav-desktop-list">
+          <li><a href="/installations">Installations</a></li>
+          <li><a href="/cleaning">Cleaning</a></li>
+          <li><a href="/bird-proofing">Bird Proofing</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+
+          <li class="header__cta-btn">
+            <a href="#">Request Quote</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button
+      type="button"
+      class="hamburger"
+      aria-label="Open Navigation Menu"
+      aria-expanded="false"
+    >
+      <img src="/icons/icon-hamburger.svg" width="24" height="24" alt="" />
+    </button>
+
+    <!-- MOBILE MENU -->
+    <div
+      class="mobile__menu-container"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      tabindex="-1"
+    >
+      <!-- MOBILE HEADER -->
+      <div class="mobile__menu-header">
+        <a href="/">
+          <img
+            src="/icons/logo.svg"
+            width="105"
+            height="35"
+            alt="Solar360 Energy Logo"
+          />
+        </a>
+
+        <button type="button" class="close" aria-label="Close Navigation Menu">
+          <img src="/icons/icon-close.svg" width="24" height="24" alt="" />
+        </button>
+      </div>
+
+      <!-- MOBILE NAV -->
+      <div class="mobile__menu-main-nav">
+        <nav class="header__nav-mobile" aria-label="Primary">
+          <ul class="header__nav-mobile--main">
+            <li class="mobile__main-item">
+              <a href="/installations">Installations</a>
+            </li>
+            <li class="mobile__main-item"><a href="/cleaning">Cleaning</a></li>
+            <li class="mobile__main-item">
+              <a href="/bird-proofing">Bird Proofing</a>
+            </li>
+            <li class="mobile__main-item"><a href="/about">About</a></li>
+            <li class="mobile__main-item">
+              <a href="/contact">Contact</a>
+            </li>
+
+            <li class="header__cta-btn">
+              <a href="#" class="btn__primary"
+                >Request Quote <span
+                  ><img src="/icons/arrow-right.svg" class="btn__arrow" /></span
+                ></a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <!-- LEGAL NAV -->
+        <nav class="legal__nav-mobile">
+          <ul>
+            <li>
+              <a href="/cookie-policy" class="legal__nav-mobile--link"
+                >Cookie Policy</a
+              >
+            </li>
+            <li>
+              <a href="/privacy-policy" class="legal__nav-mobile--link"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a href="/terms-of-service" class="legal__nav-mobile--link"
+                >Terms of Service</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- SOCIAL -->
+      <ul class="mobile__menu-social">
+        <li>
+          <a href="#">
+            <img
+              src="/icons/icon-facebook.svg"
+              width="40"
+              height="40"
+              alt="Facebook"
+            />
+          </a>
+        </li>
+
+        <li>
+          <a href="#">
+            <img
+              src="/icons/icon-instagram.svg"
+              width="40"
+              height="40"
+              alt="Instagram"
+            />
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  const header = document.querySelector(".header");
+
+  if (header) {
+    const menuOpenBtn = header.querySelector(".hamburger");
+    const menuCloseBtn = header.querySelector(".close");
+    const mobileMenu = header.querySelector(".mobile__menu-container");
+    const desktopNav = header.querySelector(".main__navigation-container");
+
+    // Ensure required elements exist
+    if (!menuOpenBtn || !menuCloseBtn || !mobileMenu) {
+      console.warn("Mobile menu elements missing");
+    } else {
+      // -----------------------------
+      // Input mode detection
+      // -----------------------------
+
+      function handleFirstTab(e) {
+        if (e.key === "Tab") {
+          document.body.classList.add("user-is-tabbing");
+          window.removeEventListener("keydown", handleFirstTab);
+        }
+      }
+
+      function handlePointerInput() {
+        document.body.classList.remove("user-is-tabbing");
+        window.addEventListener("keydown", handleFirstTab);
+      }
+
+      window.addEventListener("keydown", handleFirstTab);
+      window.addEventListener("mousedown", handlePointerInput);
+      window.addEventListener("touchstart", handlePointerInput);
+
+      // -----------------------------
+      // Focus helpers
+      // -----------------------------
+
+      function getFocusableElements(container) {
+        return Array.from(
+          container.querySelectorAll(
+            'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])',
+          ),
+        );
+      }
+
+      function trapFocus(e) {
+        const focusableItems = getFocusableElements(mobileMenu);
+
+        if (!focusableItems.length) return;
+
+        const first = focusableItems[0];
+        const last = focusableItems[focusableItems.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+
+      // -----------------------------
+      // Open Menu
+      // -----------------------------
+
+      function openMenu() {
+        menuOpenBtn.setAttribute("aria-expanded", "true");
+
+        mobileMenu.classList.add("active");
+        mobileMenu.setAttribute("aria-hidden", "false");
+
+        if ("inert" in mobileMenu) {
+          mobileMenu.inert = false;
+        }
+
+        document.body.classList.add("no-scroll");
+
+        desktopNav?.setAttribute("inert", "");
+
+        mobileMenu.focus();
+      }
+
+      // -----------------------------
+      // Close Menu
+      // -----------------------------
+
+      function closeMenu() {
+        menuOpenBtn.setAttribute("aria-expanded", "false");
+
+        mobileMenu.classList.remove("active");
+        mobileMenu.setAttribute("aria-hidden", "true");
+
+        if ("inert" in mobileMenu) {
+          mobileMenu.inert = true;
+        }
+
+        document.body.classList.remove("no-scroll");
+
+        desktopNav?.removeAttribute("inert");
+
+        menuOpenBtn.focus();
+      }
+
+      // -----------------------------
+      // Events
+      // -----------------------------
+
+      menuOpenBtn.addEventListener("click", openMenu);
+
+      menuCloseBtn.addEventListener("click", closeMenu);
+
+      document.addEventListener("click", (e) => {
+        if (!mobileMenu.classList.contains("active")) return;
+
+        const target = e.target;
+
+        if (!(target instanceof Node)) return;
+
+        if (!mobileMenu.contains(target) && !menuOpenBtn.contains(target)) {
+          closeMenu();
+        }
+      });
+
+      mobileMenu.addEventListener("click", (e) => {
+        const target = e.target;
+
+        if (!(target instanceof Element)) return;
+
+        if (target.closest("a")) {
+          closeMenu();
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (!mobileMenu.classList.contains("active")) return;
+
+        if (e.key === "Escape") {
+          closeMenu();
+        }
+
+        if (e.key === "Tab") {
+          trapFocus(e);
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        if (
+          window.innerWidth >= 1024 &&
+          mobileMenu.classList.contains("active")
+        ) {
+          closeMenu();
+        }
+      });
+    }
+  }
+</script>

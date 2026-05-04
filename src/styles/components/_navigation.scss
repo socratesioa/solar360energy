@@ -1,0 +1,112 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.main__navigation-container {
+  display: none;
+  @include responsive(md) {
+    display: block;
+  }
+}
+
+.hamburger,
+.close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  @include responsive(md) {
+    display: none;
+  }
+}
+
+.mobile__menu-container {
+  display: none;
+}
+
+.mobile__menu-container.active {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: $color-bg;
+}
+
+.mobile__menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  background-color: $color-bg;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  top: 0;
+}
+
+.mobile__menu-main-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.mobile__menu-social {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  margin-inline: auto;
+}
+
+.legal__nav-mobile ul {
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.legal__nav-mobile--link {
+  color: $color-text;
+  text-decoration: none;
+  font-family: $font-heading;
+}
+
+.header__nav-mobile--main {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mobile__main-item {
+  position: relative;
+  width: 100%;
+  padding-bottom: 0.5rem;
+}
+
+.mobile__main-item::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: $color-divider;
+  left: 0;
+  bottom: 0;
+}
+
+.mobile__main-item a {
+  text-decoration: none;
+  color: $color-text;
+  font-family: $font-heading;
+  font-size: 1.1rem;
+}
+
+.header__cta-btn {
+  margin-top: 2rem;
+  display: block;
+}

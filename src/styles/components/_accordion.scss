@@ -1,0 +1,49 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.faq {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.faq__item {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.faq__question {
+  width: 100%;
+  text-align: left;
+  padding: 1rem 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq__answer {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-minus {
+  display: none;
+}
+
+.faq__question[aria-expanded="true"] {
+  .icon-plus {
+    display: none;
+  }
+
+  .icon-minus {
+    display: block;
+  }
+}
