@@ -2,9 +2,9 @@
 @use "../abstracts/mixins" as *;
 
 .slide__img-wrapper {
+  position: relative;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  display: block;
   width: 100%;
   border-radius: 8px;
 }
@@ -16,13 +16,25 @@
   display: block;
 }
 
+.slide__details {
+  margin-top: 2rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+/* Remove default swiper arrows */
 .swiper .swiper-button-next::after,
 .swiper .swiper-button-prev::after {
   content: "";
 }
 
+/* Shared arrow styles */
 .swiper-button-next,
 .swiper-button-prev {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
   width: 48px;
   height: 48px;
   background-size: contain;
@@ -30,16 +42,14 @@
   background-position: center;
 }
 
+/* Right arrow */
 .swiper-button-next {
+  right: 1rem;
   background-image: url("/icons/icon-slider-right.svg");
 }
 
+/* Left arrow */
 .swiper-button-prev {
+  left: 1rem;
   background-image: url("/icons/icon-slider-left.svg");
-}
-
-.slide__details {
-  margin-top: 2rem;
-  display: grid;
-  gap: 0.75rem;
 }

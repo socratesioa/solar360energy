@@ -10,7 +10,7 @@ h2,
 h3,
 h4 {
   font-family: $font-heading;
-  color: $color-heading;
+  color: $color-primary;
 }
 
 h1 {
@@ -23,7 +23,6 @@ h2 {
   font-size: 1.625rem;
   line-height: 1;
   padding-bottom: 1rem;
-  text-transform: uppercase;
   position: relative;
 }
 

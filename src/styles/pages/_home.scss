@@ -33,11 +33,16 @@
   text-transform: uppercase;
   font-weight: 700;
   font-family: $font-heading;
-  color: $color-brand;
+  color: $color-primary-hover;
+}
+
+.hero__heading {
+  color: $color-primary;
+  text-transform: uppercase;
 }
 
 .hero__heading-highlight {
-  color: $color-brand;
+  color: $color-accent;
   font-weight: 800;
 }
 

@@ -7,14 +7,17 @@
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  background-color: $color-brand;
+  background-color: $color-primary;
   border-radius: 16px;
-  color: $color-white;
+  color: $color-surface;
   text-decoration: none;
   font-size: 1.125rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 5%;
+  outline: none;
+  border: none;
+  font-family: $font-base;
 }
 
 .btn__arrow {
@@ -32,9 +35,9 @@
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  background-color: $color-black;
+  background-color: $color-accent;
   border-radius: 16px;
-  color: $color-white;
+  color: $color-primary;
   text-decoration: none;
   font-size: 1.125rem;
   font-family: inherit;

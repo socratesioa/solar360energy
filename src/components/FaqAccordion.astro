@@ -56,38 +56,39 @@ const { items } = Astro.props as Props;
 
     buttons.forEach((button) => {
       const panel = button.nextElementSibling;
+      const item = button.closest(".faq__item");
 
-      if (!(panel instanceof HTMLElement)) return;
+      if (!(panel instanceof HTMLElement) || !item) return;
 
-      // base state
+      // Initial state
       panel.style.overflow = "hidden";
       panel.style.maxHeight = "0px";
 
       button.setAttribute("aria-expanded", "false");
+      item.classList.remove("is-active");
 
       button.addEventListener("click", () => {
         const isOpen = button.getAttribute("aria-expanded") === "true";
 
-        // close all
+        // Close all items
         buttons.forEach((btn) => {
+          const btnPanel = btn.nextElementSibling;
+          const btnItem = btn.closest(".faq__item");
+
           btn.setAttribute("aria-expanded", "false");
+          btnItem?.classList.remove("is-active");
 
-          const p = btn.nextElementSibling;
-
-          if (p instanceof HTMLElement) {
-            p.style.maxHeight = "0px";
+          if (btnPanel instanceof HTMLElement) {
+            btnPanel.style.maxHeight = "0px";
           }
         });
 
-        // open clicked
+        // Open clicked item
         if (!isOpen) {
           button.setAttribute("aria-expanded", "true");
+          item.classList.add("is-active");
 
-          const p = button.nextElementSibling;
-
-          if (p instanceof HTMLElement) {
-            p.style.maxHeight = p.scrollHeight + "px";
-          }
+          panel.style.maxHeight = panel.scrollHeight + "px";
         }
       });
     });
