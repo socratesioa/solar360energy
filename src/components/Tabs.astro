@@ -3,7 +3,8 @@ const features = [
   {
     id: "tab1",
     title: "Installations",
-    text: "We provide high-quality solar installations.",
+    text: "We design and install high-performance solar energy systems tailored to your property and energy needs. Our experienced team helps homes and businesses across Cyprus reduce electricity costs and achieve long-term energy savings.",
+    href: "/installations",
     images: {
       desktop: ["/images/installations.jpg", "/images/installations.png"],
       tablet: ["/images/installations.jpg", "/images/installations.png"],
@@ -14,7 +15,8 @@ const features = [
   {
     id: "tab2",
     title: "Panel Cleaning",
-    text: "Keep your system running efficiently.",
+    text: "Dirty solar panels can reduce efficiency and lower energy output over time. Our professional cleaning service safely removes dust, dirt, and debris to help your system perform at its best all year round.",
+    href: "/cleaning",
     images: {
       desktop: ["/images/cleaning.jpg", "/images/cleaning.png"],
       tablet: ["/images/cleaning.jpg", "/images/cleaning.png"],
@@ -25,18 +27,20 @@ const features = [
   {
     id: "tab3",
     title: "Bird Proofing",
-    text: "Keep your system running efficiently.",
+    text: "Birds nesting beneath solar panels can cause damage, mess, and costly repairs. Our durable bird proofing solutions protect your system while maintaining proper airflow and preserving the appearance of your installation.",
+    href: "/bird-proofing",
     images: {
       desktop: ["/images/bird-proofing.jpg", "/images/bird-proofing.png"],
       tablet: ["/images/bird-proofing.jpg", "/images/bird-proofing.png"],
       mobile: ["/images/bird-proofing.jpg", "/images/bird-proofing.png"],
     },
-    alt: "Cleaned solar panels",
+    alt: "Solar panel bird proofing",
   },
 ];
 ---
 
-<div class="tabs" role="tablist">
+<div class="section__tabs-container">
+  <div class="tabs" role="tablist">
   {
     features.map((feature, index) => (
       <button
@@ -69,7 +73,7 @@ const features = [
         <!-- Tablet -->
         <source
           srcset={`${feature.images.tablet[0]} 1x, ${feature.images.tablet[1]} 2x`}
-          media="(min-width: 600px)"
+          media="(min-width: 768px)"
         />
 
         <!-- Fallback (mobile) -->
@@ -86,10 +90,16 @@ const features = [
 
       <div class="feature-content">
         <p>{feature.text}</p>
-      </div>
+      
+  <a href={feature.href} class="btn__primary tabs__btn"
+            >Learn More <span
+              ><img src="/icons/arrow-right.svg" class="btn__arrow" /></span></a>
+    </div>
     </div>
   ))}
 </div>
+</div>
+
 
 <script is:inline>
   const tabs = document.querySelectorAll(".feature-btn");

@@ -3,7 +3,7 @@
 
 .main__navigation-container {
   display: none;
-  @include responsive(md) {
+  @include responsive(lg) {
     display: block;
   }
 }
@@ -19,7 +19,7 @@
   outline: none;
   border: none;
   cursor: pointer;
-  @include responsive(md) {
+  @include responsive(lg) {
     display: none;
   }
 }

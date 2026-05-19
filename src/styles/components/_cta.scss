@@ -11,6 +11,14 @@
   position: relative;
   z-index: 1;
   overflow: hidden;
+  @include responsive(md) {
+    padding: 4rem;
+    border-radius: 16px;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 540px;
+    margin-inline: auto;
+  }
 }
 
 .cta__inner::before {
@@ -76,5 +84,19 @@ form {
   outline: none;
   border: 1px solid rgba($color-black, 0.5);
   font-family: inherit;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
+}
+
+.input input::placeholder {
+  color: $color-text-muted;
+}
+
+.cta__transition {
+  margin-bottom: 4rem;
+}
+
+.cta__transition p {
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 0 1rem;
 }

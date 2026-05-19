@@ -7,17 +7,32 @@ import FaqAccordion from "../components/FaqAccordion.astro";
 
 const faqItems = [
   {
-    question: "Question 1",
+    question: "Do dirty solar panels reduce efficiency?",
     answer:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a fermentum ante, condimentum sodales sem. Aenean lorem mi, rutrum vel velit vitae, tempus efficitur eros. Donec a dui suscipit magna pharetra fringilla eget vel nisi.",
   },
   {
-    question: "Question 2",
+    question: "What happens if bird droppings are left on solar panels?",
     answer:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a fermentum ante, condimentum sodales sem. Aenean lorem mi, rutrum vel velit vitae, tempus efficitur eros. Donec a dui suscipit magna pharetra fringilla eget vel nisi.",
   },
   {
-    question: "Question 3",
+    question: "How do I know when my solar panels need cleaning?",
+    answer:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a fermentum ante, condimentum sodales sem. Aenean lorem mi, rutrum vel velit vitae, tempus efficitur eros. Donec a dui suscipit magna pharetra fringilla eget vel nisi.",
+  },
+  {
+    question: "Does solar panel cleaning help extend panel lifespan?",
+    answer:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a fermentum ante, condimentum sodales sem. Aenean lorem mi, rutrum vel velit vitae, tempus efficitur eros. Donec a dui suscipit magna pharetra fringilla eget vel nisi.",
+  },
+  {
+    question: "Do you offer residential and commercial solar panel cleaning?",
+    answer:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a fermentum ante, condimentum sodales sem. Aenean lorem mi, rutrum vel velit vitae, tempus efficitur eros. Donec a dui suscipit magna pharetra fringilla eget vel nisi.",
+  },
+  {
+    question: "How often should solar panels be cleaned?",
     answer:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a fermentum ante, condimentum sodales sem. Aenean lorem mi, rutrum vel velit vitae, tempus efficitur eros. Donec a dui suscipit magna pharetra fringilla eget vel nisi.",
   },
@@ -34,21 +49,26 @@ const faqItems = [
         <img src={cleaningImage.src} alt="Panel Cleaning Image" />
       </picture>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a
-        fermentum ante, condimentum sodales sem. Aenean lorem mi, rutrum vel
-        velit vitae, tempus efficitur eros. Donec a dui suscipit magna pharetra
-        fringilla eget vel nisi. Sed eget nibh vitae lectus malesuada pulvinar
-        eget elementum ex. Proin mattis neque sed massa congue, ut varius neque
-        fermentum. Mauris et ex eget tellus vehicula vehicula et vel nisi. In
-        non dui non neque maximus rhoncus in eu quam. Nulla viverra condimentum
-        vulputate. Maecenas accumsan dapibus massa convallis pellentesque. Ut
-        ultrices quis diam sed ornare. Vivamus lobortis neque eget neque
-        ullamcorper iaculis. Phasellus sed aliquam felis. Vivamus bibendum
-        bibendum lacus, eu rhoncus libero.
+        Your solar panels work best when they’re clean. Over time, dust, dirt,
+        bird droppings, pollen, and other debris can build up on the surface,
+        reducing efficiency and lowering energy output. At Solar360 Energy, we
+        provide professional solar panel cleaning services designed to help your
+        system perform at its full potential while protecting your long-term
+        investment.
+      </p>
+      <p>
+        Using safe, non-abrasive cleaning methods, our team removes stubborn
+        buildup without damaging your panels or voiding manufacturer warranties.
+        Whether for residential or commercial systems, regular cleaning can
+        improve performance, extend panel lifespan, and help you get the most
+        from your solar energy system.
       </p>
     </section>
     <section class="page__main"></section>
     <FaqAccordion items={faqItems} />
+    <div class="cta__transition">
+      <p>Ready to improve your solar panel performance?</p>
+    </div>
     <Cta />
   </div>
 </BaseLayout>

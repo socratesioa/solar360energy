@@ -8,7 +8,7 @@
   align-items: center;
   padding: 0.5rem 0.5rem 0.5rem 1rem;
   position: relative;
-  @include responsive(md) {
+  @include responsive(lg) {
     padding: 2rem;
   }
 }

@@ -20,6 +20,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 2rem 1rem;
+  @include responsive(md) {
+    padding: 2rem;
+  }
 }
 
 .social {
@@ -35,6 +38,11 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  @include responsive(md) {
+    padding: 3rem;
+    justify-content: center;
+    gap: 4rem;
+  }
 }
 
 .footer__contact a {
@@ -58,12 +66,15 @@
 
 .legal ul {
   list-style: none;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  @include responsive(md) {
+    flex-direction: row;
+    gap: 1rem;
+  }
 }
 
 .legal ul a {
@@ -92,4 +103,7 @@
 
 .footer__copyright span {
   display: block;
+  @include responsive(md) {
+    display: unset;
+  }
 }
